@@ -8,7 +8,6 @@ import { UsersModule } from './users/users.module';
 import { ThreadsModule } from './threads/threads.module';
 import { RecommendationsModule } from './recommendations/recommendations.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { RecomendationsService } from './recomendations/service/recomendations.service';
 
 @Module({
   imports: [
@@ -20,13 +19,13 @@ import { RecomendationsService } from './recomendations/service/recomendations.s
     RecommendationsModule,
     TypeOrmModule.forRoot({
       type :"sqlite",
-      database: "apiDB",
+      database: "apiDB.db",
       entities: [__dirname + "/**/*.entity{.ts,.js}"],
       synchronize: true
     })
   ],
   controllers: [AppController],
-  providers: [AppService, RecomendationsService],
+  providers: [AppService],
 
 })
 export class AppModule {}

@@ -18,13 +18,13 @@ export class BookEntity {
     summary: string
 
     @Column()
-    genres: string[]
+    genres: string
 
     @Column()
-    tags: string[]
+    tags: string
 
     @Column()
-    other: string[]
+    other: string
     
     @Column()
     productPicture: string // base64 encoded picture

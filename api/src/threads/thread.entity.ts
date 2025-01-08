@@ -16,19 +16,19 @@ export class ThreadEntity {
     description: string
     
     @Column()
-    attachments: string[] // list of base64 encoded pictures
+    attachments: string // list of base64 encoded pictures
 
     @Column()
-    categories: string[]
+    categories: string
 
     @Column()
-    tags: string[]
+    tags: string
 
     @Column()
-    other: string[]
+    other: string
 
     @Column()
-    awards: string[]
+    awardsNum: number
 
     @Column()
     likes: number

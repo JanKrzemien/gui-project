@@ -12,7 +12,7 @@ export class CommentEntity {
     content: string
 
     @Column()
-    awards: string[]
+    awardsNumber: number
 
     @Column()
     likes: number
