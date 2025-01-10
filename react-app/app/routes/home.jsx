@@ -1,4 +1,4 @@
-import { Welcome } from "../welcome/welcome";
+import { HomePageContent } from '../home/HomePageContent'
 
 export function meta() {
   return [
@@ -8,7 +8,5 @@ export function meta() {
 }
 
 export default function Home() {
-  return <>
-    <p>Home</p>
-  </>;
+  return <HomePageContent />;
 }

@@ -7,6 +7,8 @@ import {
   ScrollRestoration,
 } from "react-router";
 
+import { MainNavigation } from './shared-components/MainNavigation'
+
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
@@ -47,7 +49,16 @@ export function Layout({ children }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return <>
+          <MainNavigation 
+            onLogin={() => console.log('Login clicked')} 
+            onRegister={() => console.log('Register clicked')} 
+            onSearch={(query) => console.log('Search:', query)}
+          />
+          <Outlet />
+        </>
+  
+  ;
 }
 
 export function ErrorBoundary({ error }) {
