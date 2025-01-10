@@ -1,0 +1,47 @@
+.book-list-container {
+  width: 674px;
+  padding: 20px;
+  font-family: 'Roboto', sans-serif;
+  background-color: #d3d3d3;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.book-list-title {
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  color: #000000;
+  text-align: center;
+}
+
+.books-grid {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.book-item {
+  width: 140px;
+  height: 205px;
+  background-color: #838383;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.book-image {
+  width: 105px;
+  height: 66px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.book-cover {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+

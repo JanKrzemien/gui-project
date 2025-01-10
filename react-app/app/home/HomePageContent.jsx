@@ -5,7 +5,7 @@ import './HomePageContent.css';
 
 export const HomePageContent = () => {
   return (
-    <div className="app-container">
+    <div className="home-page">
       <Carousel />
       <ProductSection title="Nowości" />
       <ProductSection title="Popularne" />

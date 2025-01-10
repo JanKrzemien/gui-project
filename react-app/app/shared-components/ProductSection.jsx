@@ -1,7 +1,7 @@
 import React from 'react';
 import './ProductSection.css';
 
-import { ProductCard } from './productCard';
+import { ProductCard } from './ProductCard';
 import { Separator } from './Separator'
 
 export const ProductSection = ({ title = "Nowości", products = [] }) => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import './ProductCard.css';
 
-export const ProductCard = ({product, index}) => {
+export const ProductCard = ({product = {id: -1, image: 'https://dashboard.codeparrot.ai/api/assets/Z4EEWQIBBLnlud4l', name: 'default', rating: 0, starImage: 'https://dashboard.codeparrot.ai/api/assets/Z4EEWQIBBLnlud4m'}, index}) => {
     return <div key={product.id || index} className="product-card">
                 <div className="product-image-container">
                   <img src={product.image} alt={product.name} className="product-image" />

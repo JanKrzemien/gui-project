@@ -1,3 +1,5 @@
+import { GroupPageContent } from "../group/GroupPageContent";
+
 export async function loader({params}) {
     const groupId = params.groupId;
     return {"groupId": groupId};
@@ -5,7 +7,5 @@ export async function loader({params}) {
 export async function action() {}
 
 export default function Group({loaderData}) {
-    return <>
-        <p>Group {loaderData.groupId}</p>
-    </>
+    return <GroupPageContent />
 }

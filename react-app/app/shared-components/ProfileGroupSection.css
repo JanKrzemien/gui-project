@@ -1,0 +1,91 @@
+.groups-section {
+  width: 674px;
+  min-height: 277px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.groups-title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0;
+  color: #000000;
+  height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.groups-container {
+  width: 674px;
+  height: 234px;
+  background: #FFFFFF;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  overflow-y: auto;
+}
+
+.group-card {
+  width: 140px;
+  height: 211px;
+}
+
+.group-button {
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0 !important;
+  border: 1px solid #E0E0E0 !important;
+  border-radius: 8px !important;
+  background-color: #FFFFFF !important;
+  text-transform: none !important;
+}
+
+.group-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-container {
+  width: 128px;
+  height: 119px;
+  margin-top: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.group-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.name-container {
+  width: 128px;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.group-name {
+  font-family: 'Kiwi Maru', serif;
+  font-size: 13px;
+  font-weight: 400;
+  text-align: center;
+  color: #000000;
+  margin: 0;
+  padding: 0 4px;
+  word-wrap: break-word;
+  line-height: 1.2;
+}
