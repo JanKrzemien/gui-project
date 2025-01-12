@@ -2,34 +2,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 50px;
+  height: 60px;
   width: 100%;
   background-color: #bad9c8;
-  padding: 0 20px;
 }
 
 .nav-left-btn-group {
   display: flex;
   align-items: center;
-  gap: 20px;
 }
 
 .logo {
   width: 150px;
   height: 50px;
   object-fit: contain;
-}
-
-.nav-btn {
-  height: 50px;
-  padding: 0 20px;
-  background: none;
-  border: none;
-  font-family: 'Kiwi Maru', serif;
-  font-size: 24px;
-  font-weight: 400;
-  color: #000000;
-  cursor: pointer;
 }
 
 .nav-middle-group {
@@ -39,29 +25,53 @@
   height: 40px;
 }
 
-.category-select {
-  position: relative;
-  width: 152px;
+.category-select-label {
+  width: 100%;
+  height: 100%;
+  font-family: 'Kiwi Maru';
+  color: #333;
 }
 
-.select-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.category-select-label.Mui-focused {
+  color: #000;
+}
+
+.category-select-container {
+  gap: 10px;
   height: 40px;
-  padding: 0 12px;
+  width: 150px;
   background-color: #fff;
-  border: 2px solid #f29966;
-  border-radius: 4px;
+  font-family: 'Kiwi Maru';
 }
 
-.select-value {
-  font-family: 'Kiwi Maru', serif;
-  font-size: 16px;
-  font-weight: 400;
-  color: #000000;
+/*inactivestatre*/
+.category-select-container .MuiOutlinedInput-root {
+  border-color: #f29966; /* Example border color */
+  background-color: #fff;
 }
 
+/* Hover state */
+.category-select-container:hover .MuiOutlinedInput-root {
+  border-color: #ffcc80; /* Example border color on hover */
+  background-color: #f5f5f5; /* Example background color on hover */
+}
+
+/* Active state */
+.category-select-container .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #ff9800; /* Example border color when active */
+  background-color: #fff3e0; /* Example background color when active */
+}
+
+/* Change font */
+.category-select-container .MuiOutlinedInput-input {
+  font-family: 'Kiwi Maru';
+  color: #000;
+}
+
+/* Change label color when focused */
+.category-select-label.Mui-focused {
+  color: #ff9800; /* Example color when focused */
+}
 .dropdown-icon {
   width: 24px;
   height: 24px;
@@ -115,18 +125,5 @@
 .nav-right-btn-group {
   display: flex;
   gap: 10px;
+  padding: 0 20px;
 }
-
-.auth-btn {
-  height: 34px;
-  padding: 8px 22px;
-  background-color: #f29966;
-  border: none;
-  border-radius: 4px;
-  font-family: 'Kiwi Maru', serif;
-  font-size: 16px;
-  font-weight: 400;
-  color: #fff;
-  cursor: pointer;
-}
-
