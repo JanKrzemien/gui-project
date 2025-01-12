@@ -1,4 +1,4 @@
-import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm"
+import { Column, CreateDateColumn, Entity, ManyToMany, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm"
 import { UsersBookEntity } from 'src/users/users_book.entity'
 import { GroupEntity } from 'src/groups/group.entity'
 
@@ -6,7 +6,7 @@ import { GroupEntity } from 'src/groups/group.entity'
 @Entity()
 export class BookEntity {
     @PrimaryGeneratedColumn()
-    id: number
+    book_id: number
 
     @Column()
     title: string
@@ -29,11 +29,12 @@ export class BookEntity {
     @Column()
     productPicture: string // base64 encoded picture
 
-    @OneToMany(() => UsersBookEntity, user => user.id)
-    user: UsersBookEntity[];
+    // @ManyToMany(() => UsersBookEntity, user => user.book)
+    @OneToMany(() => UsersBookEntity, userBook => userBook.book)
+    userConn?:  Promise<UsersBookEntity[]>
 
-    @OneToMany(() => GroupEntity, relatedGroup => relatedGroup.id)
-    relatedGroup: GroupEntity[]
+    @OneToMany(() => GroupEntity, relatedGroup => relatedGroup.group_id)
+    relatedGroup?: GroupEntity[]
 
     @CreateDateColumn()
     createdAt : String

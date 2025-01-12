@@ -7,7 +7,7 @@ import { UserEntity } from "src/users/user.entity"
 @Entity()
 export class ThreadEntity {
     @PrimaryGeneratedColumn()
-    id: number
+    thread_id: number
 
     @Column()
     title: string
@@ -36,13 +36,13 @@ export class ThreadEntity {
     @Column()
     dislikes: number
 
-    @OneToMany(() => CommentEntity, comment => comment.id)
+    @OneToMany(() => CommentEntity, comment => comment.comment_id)
     comment: CommentEntity[]
 
-    @ManyToOne(() => GroupEntity, group => group.id)
+    @ManyToOne(() => GroupEntity, group => group.group_id)
     group: GroupEntity
 
-    @ManyToOne(() => UserEntity, user => user.id)
+    @ManyToOne(() => UserEntity, user => user.user_id)
     user:  UserEntity
 
     @CreateDateColumn()

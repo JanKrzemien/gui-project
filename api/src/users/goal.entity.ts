@@ -4,7 +4,7 @@ import { UserEntity } from "./user.entity"
 @Entity()
 export class GoalEntity {
     @PrimaryGeneratedColumn()
-    id: number
+    goal_id: number
 
     @Column()
     description: string

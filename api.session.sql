@@ -1,1 +1,1 @@
-SELECT * FROM user_entity
+DELETE FROM user_entity
