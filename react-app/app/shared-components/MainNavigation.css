@@ -25,57 +25,78 @@
   height: 40px;
 }
 
-.category-select-label {
-  width: 100%;
-  height: 100%;
-  font-family: 'Kiwi Maru';
-  color: #333;
-}
+/* SEKCJA Z STYLINGIEM SELECTA */
+/* NIE RUSZAĆ BO WYBUCHNIE! */
 
-.category-select-label.Mui-focused {
-  color: #000;
-}
 
-.category-select-container {
-  gap: 10px;
-  height: 40px;
+/* Container styling for the entire FormControl */
+.category-select {
   width: 150px;
-  background-color: #fff;
-  font-family: 'Kiwi Maru';
+  height: 40px;
+  font-family: 'Kiwi Maru', serif;
 }
 
-/*inactivestatre*/
-.category-select-container .MuiOutlinedInput-root {
-  border-color: #f29966; /* Example border color */
-  background-color: #fff;
-}
-
-/* Hover state */
-.category-select-container:hover .MuiOutlinedInput-root {
-  border-color: #ffcc80; /* Example border color on hover */
-  background-color: #f5f5f5; /* Example background color on hover */
-}
-
-/* Active state */
-.category-select-container .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
-  border-color: #ff9800; /* Example border color when active */
-  background-color: #fff3e0; /* Example background color when active */
-}
-
-/* Change font */
-.category-select-container .MuiOutlinedInput-input {
-  font-family: 'Kiwi Maru';
+/* Styling for the InputLabel */
+.category-select-label {
+  font-family: 'Kiwi Maru', serif;
   color: #000;
 }
 
 /* Change label color when focused */
 .category-select-label.Mui-focused {
-  color: #ff9800; /* Example color when focused */
+  color: #666; /* New color when focused */
 }
+
+/* Styling for the Select container */
+.category-select-container {
+  font-family: 'Kiwi Maru', serif;
+  font-size: 16px;
+  height: 40px;
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+
+/* Border styling for the Select dropdown */
+.category-select-container .MuiOutlinedInput-notchedOutline {
+  border-color: #f29966;
+}
+
+/* Hover state for the Select dropdown */
+.category-select-container:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #f29966;
+}
+
+/* Focused/Active state for the Select dropdown */
+.category-select-container.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #f29966;
+  box-shadow: 0 0 5px rgba(242, 153, 102, 0.5);
+}
+
+/* Styling for the dropdown menu items */
+.MuiMenuItem-root {
+  font-family: 'Kiwi Maru', serif;
+  color: #444;
+}
+
+/* Hover state for the dropdown menu items */
+.MuiMenuItem-root:hover {
+  background-color: #fceee6;
+  color: #f29966;
+}
+
+/* Selected menu item styling */
+.Mui-selected {
+  background-color: #fceee6 !important;
+  color: #f29966 !important;
+}
+
+
 .dropdown-icon {
   width: 24px;
   height: 24px;
 }
+
+/* search bar */
 
 .searchbar {
   display: flex;
