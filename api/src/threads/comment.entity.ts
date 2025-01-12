@@ -6,7 +6,7 @@ import { ThreadEntity } from "./thread.entity"
 @Entity()
 export class CommentEntity {
     @PrimaryGeneratedColumn()
-    id: number
+    comment_id: number
 
     @Column()
     content: string

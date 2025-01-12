@@ -7,7 +7,7 @@ import { BookEntity } from "src/products/book.entity"
 @Entity()
 export class GroupEntity {
     @PrimaryGeneratedColumn()
-    id: number
+    group_id: number
 
     @Column()
     name: string
@@ -18,7 +18,7 @@ export class GroupEntity {
     @Column()
     groupPicture: string // base64 encoded picture
 
-    @OneToMany(() => ThreadEntity, thread => thread.id)
+    @OneToMany(() => ThreadEntity, thread => thread.thread_id)
     thread: ThreadEntity[]
 
     @ManyToOne(() => UserEntity, user => user.group)

@@ -4,7 +4,7 @@ import { UserEntity } from 'src/users/user.entity'
 @Entity()
 export class UserAuthEntity {
     @PrimaryGeneratedColumn()
-    id: number
+    auth_id: number
 
     @Column()
     email: string
@@ -18,7 +18,7 @@ export class UserAuthEntity {
     @Column()
     isActive: boolean
 
-    @OneToOne(() => UserEntity, user => user.id)
-    @JoinColumn()
+    @OneToOne(() => UserEntity)
+    @JoinColumn({ name: 'user_id' })
     user: UserEntity
 }
