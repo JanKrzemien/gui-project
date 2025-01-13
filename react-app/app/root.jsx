@@ -50,11 +50,7 @@ export function Layout({ children }) {
 
 export default function App() {
   return <>
-          <MainNavigation 
-            onLogin={() => console.log('Login clicked')} 
-            onRegister={() => console.log('Register clicked')} 
-            onSearch={(query) => console.log('Search:', query)}
-          />
+          <MainNavigation />
           <Outlet />
         </>
   

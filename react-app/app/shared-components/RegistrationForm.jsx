@@ -1,39 +1,109 @@
-import './RegistrationForm.css';
+import { useNavigate } from 'react-router';
+import { useLocalStorage } from '@uidotdev/usehooks';
+import { StandardInput } from './Inputs';
+import { ContainedButton } from './Buttons';
+import { useState } from 'react';
+
+import './LoginForm';
 
 export const RegistrationForm = ({ onSubmit }) => {
-  return (
-    <div className="registration-container">
-      <h1 className="registration-title">Rejestracja</h1>
-      
-      <div className="form-container">
+  const navigate = useNavigate()
+  
+  const [userData, setUserData] = useLocalStorage('userData', undefined)
+
+  const [formData, setFormData] = useState({
+    email: '',
+    password: ''
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    // e.preventDefault();
+    // const url = "http://localhost:3000/auth/login"
+    // const data = {
+    //   email: formData.email,
+    //   password: formData.password,
+    // }
+    // await fetch(url, {
+    //   method: "POST",
+    //   body: JSON.stringify(data),
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   },
+    // }).then(res => res.json())
+    //   .then(data => {
+    //     console.log(JSON.stringify(data))
+    //     setUserData({
+    //       user: data.user,
+    //       token: data.access_token
+    //     })
+    //     navigate('/')
+    //   })
+    //   .catch(function(error) {
+    //     console.log(error);
+    //   });
+  };
+
+  return !userData ? (
+    <div className="login-form">
+      <div className="login-content">
+        <h1 className="login-title">Rejestracja</h1>
         <div className="input-group">
-          <label>Nazwa użytkownika</label>
-          <input type="text" />
+          <StandardInput  
+            name='username'
+            label='Nazwa użytkownika'
+            type='text'
+
+            onChange={handleChange}
+          />
         </div>
 
         <div className="input-group">
-          <label>Hasło</label>
-          <input type="password" />
+          <StandardInput 
+            name='password'
+            label='Hasło'
+            type='password'
+            onChange={handleChange}
+          />
         </div>
 
         <div className="input-group">
-          <label>Email</label>
-          <input type="email" />
+          <StandardInput  
+            name='email'
+            label='Email'
+            type='text'
+
+            onChange={handleChange}
+          />
         </div>
 
         <div className="input-group">
-          <label>Powtórz Email</label>
-          <input type="email" />
+          <StandardInput 
+            name='email_repeat'
+            label='Powtórz email'
+            type='text'
+            onChange={handleChange}
+          />
         </div>
 
-        <button className="register-button" onClick={onSubmit}>
-          Zarejestruj się
-        </button>
+        <ContainedButton text="Zarejestruj się" onClick={handleSubmit} className="login-button"/>
 
-        <p className="login-link">
-          Masz już konto? <span>Zaloguj się</span>
-        </p>
+        <div className="register-link">
+          <span>Masz już konto? </span>
+          <a onClick={() => navigate('/login')}>Zaloguj się</a>
+        </div>
       </div>
     </div>
-  );
+  ) : (
+    <main className="pt-16 p-4 container mx-auto">
+      <h1>Wyloguj się aby zarejestrować się ponownie</h1>
+    </main>
+  )
 };
