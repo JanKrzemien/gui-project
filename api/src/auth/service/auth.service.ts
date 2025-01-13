@@ -43,15 +43,19 @@ export class AuthService {
         return null
     }
 
-    async login(body: any) {
+    async login(body: any): Promise<any> {
         const user = await this.userAuthRepository.findOne({
+            relations: {
+                user: true
+            },
             where: {
                 email: body.email
             }
         })
         const payload = {email: user.email, user_id: user.auth_id, role: user.role}
         return {
-            access_token: this.jwt.sign(payload)
+            access_token: this.jwt.sign(payload),
+            user: user
         }
     }
 }

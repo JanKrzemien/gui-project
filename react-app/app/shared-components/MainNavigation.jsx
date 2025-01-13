@@ -1,9 +1,19 @@
 import React, { useState } from 'react';
 import './MainNavigation.css';
 import { ContainedButton, OutlineButton, TextButton } from './Buttons';
-import { Select, MenuItem, FormControl, InputLabel } from '@mui/material';
+import { OutlinedInput } from './Inputs'
+import { Select, MenuItem, FormControl, InputLabel, Avatar } from '@mui/material';
+import { useNavigate } from "react-router";
+import { useLocalStorage } from '@uidotdev/usehooks'
+import 'material-icons/iconfont/material-icons.css'
 
-export const MainNavigation = ({ onLogin, onRegister, onSearch }) => {
+export const MainNavigation = () => {
+  let navigate = useNavigate();
+
+  const [userData, setUserData] = useLocalStorage('userData', undefined)
+
+  console.log(userData)
+
   const [category, setCategory] = useState('Wszystkie');
 
   const handleCategoryChange = (event) => {
@@ -13,9 +23,9 @@ export const MainNavigation = ({ onLogin, onRegister, onSearch }) => {
   return (
     <nav className="main-nav">
       <div className="nav-left-btn-group">
-        <img src="https://dashboard.codeparrot.ai/api/assets/Z4EEOgIBBLnlud4f" alt="Logo" className="logo" />
-        <TextButton text="Rekomendacje" onClick={() => {}} className="nav-btn" />
-        <TextButton text="Społeczność" onClick={() => {}} className="nav-btn" />
+        <a onClick={() => navigate('/')} className='logo-container'><img src="/book.png" alt="Logo" className="logo" /></a>
+        <TextButton text="Rekomendacje" onClick={() => navigate('/recommend')} className="nav-btn" />
+        <TextButton text="Społeczność" onClick={() => navigate('/groups')} className="nav-btn" />
       </div>
 
       <div className="nav-middle-group">
@@ -36,31 +46,27 @@ export const MainNavigation = ({ onLogin, onRegister, onSearch }) => {
 
         <div className="searchbar">
           <div className="input-box">
-            <input 
-              type="text" 
-              placeholder="Szukaj książek, autorów i więcej"
-              onChange={(e) => onSearch?.(e.target.value)}
-            />
+              <OutlinedInput label="Szukaj książek, autorów i więcej" onChange={(e) => console.log(e.target.value)}/>
           </div>
-          <button className="search-btn">
-            <img src="https://dashboard.codeparrot.ai/api/assets/Z4EEOgIBBLnlud4h" alt="Search" className="search-icon" />
-          </button>
+          <OutlineButton className="search-btn" text={<span className="material-icons">search</span>} />
         </div>
       </div>
 
-      <div className="nav-right-btn-group">
-        <ContainedButton text="Logowanie" onClick={onLogin}/>
-        <ContainedButton text="Rejestracja" onClick={onRegister}/>
-      </div>
+
+      {
+        userData ? (
+          <div className="nav-right-btn-group">
+            <Avatar onClick={() => {navigate('/user/' + userData.user.user.user_id)}}>{userData.user.user.username[0]}</Avatar>
+          </div>
+          ) : (
+          <div className="nav-right-btn-group">
+            <ContainedButton text="Logowanie" onClick={() => navigate('/login')}/>
+            <ContainedButton text="Rejestracja" onClick={() => navigate('/register')}/>
+          </div>
+          )
+      }
+
+      
     </nav>
   );
 };
-
-MainNavigation.defaultProps = {
-  onLogin: () => {},
-  onRegister: () => {},
-  onSearch: () => {}
-};
-
-export default MainNavigation;
-
