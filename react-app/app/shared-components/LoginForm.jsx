@@ -24,9 +24,14 @@ export const LoginForm = () => {
     }));
   };
 
+  const checkInput = () => {
+    //TODO finish function
+  }
+
   const handleSubmit = async (e) => {
+    checkInput()
+
     e.preventDefault();
-    console.log(formData)
     const url = "http://localhost:3000/auth/login"
     const data = {
       email: formData.email,

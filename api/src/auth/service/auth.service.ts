@@ -10,21 +10,21 @@ import { UserEntity } from 'src/users/user.entity';
 export class AuthService {
     constructor(@InjectRepository(UserAuthEntity) private userAuthRepository: Repository<UserAuthEntity>, @InjectRepository(UserEntity) private userRepository: Repository<UserEntity>, private jwt: JwtService) {}
 
-    async signup(user: any): Promise<UserAuthEntity> {
+    async signup(user: {auth: UserAuthEntity, info: UserEntity}): Promise<UserAuthEntity> {
         const salt = await bcrypt.genSalt()
-        const hash = await bcrypt.hash(user.password, salt)
+        const hash = await bcrypt.hash(user.auth.password, salt)
         
         const userInfo = new UserEntity()
-        userInfo.username = user?.username ? user.username : 'default'
-        userInfo.profilePicture = user?.profilePicture ? user.profilePicture : 'default'
+        userInfo.username = user.info.username
+        userInfo.profilePicture = 'default'
         userInfo.aboutMe = ''
         const savedUserInfo = await this.userRepository.save(userInfo)
         
         const userAuth = new UserAuthEntity()
-        userAuth.email = user.email
-        userAuth.role = user.role
+        userAuth.email = user.auth.email
+        userAuth.role = user.auth.role
         userAuth.password = hash
-        userAuth.isActive = Boolean(user.isActive)
+        userAuth.isActive = Boolean(user.auth.isActive)
         userAuth.user = savedUserInfo
 
         return await this.userAuthRepository.save(userAuth);
