@@ -17,7 +17,7 @@ export class ProductsController {
         return body.books.length
     }
 
-    @Get('getmatching')
+    @Post('getmatching')
     async getMatchingBooks(@Body() body: BookEntity): Promise<BookEntity[]> {
         return this.productsService.getFiltered(body)
     }

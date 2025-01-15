@@ -26,10 +26,6 @@ export class ProductsService {
         return await query.getMany()
     }
 
-    // async getUsers(user: UserEntity): Promise<BookEntity[]> {
-
-    // }
-
     async create(product: BookEntity, user: UserAuthEntity): Promise<BookEntity> {
         if(user.role == 'admin') {
             return await this.productRepository.save(product)

@@ -1,10 +1,11 @@
 import React from 'react';
 import './ProductSection.css';
+import 'material-icons/iconfont/material-icons.css'
 
 import { ProductCard } from './ProductCard';
 import { Separator } from './Separator'
 
-export const ProductSection = ({ title = "Nowości", products = [] }) => {
+export const ProductSection = ({ title = "Polecane", products = [] }) => {
   const defaultProducts = [
     {
       id: 1,
@@ -50,15 +51,18 @@ export const ProductSection = ({ title = "Nowości", products = [] }) => {
 
   const displayProducts = products.length > 0 ? products : defaultProducts;
 
+  console.log(displayProducts)
+
   return (
     <div className="product-section">
       <div className="section-header">
         <div className="title-container">
           <h2 className="title">{title}</h2>
         </div>
+        
         <button className="view-more-btn">
           <span>Zobacz więcej</span>
-          <img src="https://dashboard.codeparrot.ai/api/assets/Z4EEWQIBBLnlud4v" alt="arrow" className="arrow-icon" />
+          <span className="material-icons">arrow_right_alt</span>
         </button>
       </div>
       
@@ -66,7 +70,7 @@ export const ProductSection = ({ title = "Nowości", products = [] }) => {
 
       <div className="products-container">
         {displayProducts.map((product, index) => (
-          <ProductCard product={product} index={index} />
+          <ProductCard product={product} key={index} />
         ))}
       </div>
     </div>
