@@ -61,7 +61,7 @@ export const RegistrationForm = ({ onSubmit }) => {
             label='Nazwa użytkownika'
             type='text'
 
-            onChange={handleChange}
+            onChangeFun={handleChange}
           />
         </div>
 
@@ -70,7 +70,7 @@ export const RegistrationForm = ({ onSubmit }) => {
             name='password'
             label='Hasło'
             type='password'
-            onChange={handleChange}
+            onChangeFun={handleChange}
           />
         </div>
 
@@ -80,7 +80,7 @@ export const RegistrationForm = ({ onSubmit }) => {
             label='Email'
             type='text'
 
-            onChange={handleChange}
+            onChangeFun={handleChange}
           />
         </div>
 
@@ -89,7 +89,7 @@ export const RegistrationForm = ({ onSubmit }) => {
             name='email_repeat'
             label='Powtórz email'
             type='text'
-            onChange={handleChange}
+            onChangeFun={handleChange}
           />
         </div>
 

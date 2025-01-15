@@ -14,6 +14,7 @@ export const LoginForm = () => {
     email: '',
     password: ''
   });
+  const [error, setError] = useState(false)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,6 +26,7 @@ export const LoginForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(formData)
     const url = "http://localhost:3000/auth/login"
     const data = {
       email: formData.email,
@@ -36,9 +38,15 @@ export const LoginForm = () => {
       headers: {
         "Content-Type": "application/json"
       },
-    }).then(res => res.json())
+    }).then(res => {
+      if(res.ok)
+        return res.json()
+      else {
+        // wrong input
+        setError(true)
+      }
+  })
       .then(data => {
-        console.log(JSON.stringify(data))
         setUserData({
           user: data.user,
           token: data.access_token
@@ -60,7 +68,7 @@ export const LoginForm = () => {
             label='Email'
             type='text'
 
-            onChange={handleChange}
+            onChange={(e) => handleChange(e)}
           />
         </div>
 
@@ -69,7 +77,7 @@ export const LoginForm = () => {
             name='password'
             label='Hasło'
             type='password'
-            onChange={handleChange}
+            onChange={(e) => handleChange(e)}
           />
         </div>
 
