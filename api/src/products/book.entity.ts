@@ -25,6 +25,9 @@ export class BookEntity {
 
     @Column()
     other: string
+
+    @Column('real')
+    globalRating: number
     
     @Column()
     productPicture: string // base64 encoded picture

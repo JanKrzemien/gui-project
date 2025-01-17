@@ -8,7 +8,7 @@ export const ProductCard = (
       productPicture: 'default',
       title: 'default title',
       author: 'default author',
-      global_rating: 0
+      globalRating: 0
     }
   }) => {
   let image = () => {
@@ -36,7 +36,7 @@ export const ProductCard = (
             <p className="product-name">{product.title}</p>
             <p className="product-author">{product.author}</p>
             <div className="rating-container">
-              <span className="rating">{product.global_rating}</span>
+              <span className="rating">{product.globalRating}</span>
               <span className="material-icons">star</span>
             </div>
           </div>
