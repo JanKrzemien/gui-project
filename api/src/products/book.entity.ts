@@ -17,9 +17,6 @@ export class BookEntity {
     @Column()
     summary: string
 
-    @Column('decimal')
-    global_rating: number
-
     @Column()
     genres: string
 
@@ -28,6 +25,9 @@ export class BookEntity {
 
     @Column()
     other: string
+
+    @Column('real')
+    globalRating: number
     
     @Column()
     productPicture: string // base64 encoded picture
