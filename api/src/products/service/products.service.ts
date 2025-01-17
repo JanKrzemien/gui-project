@@ -21,8 +21,8 @@ export class ProductsService {
         })
     }        
 
-    async getFiltered(filter: BookEntity): Promise<BookEntity[]> {
-        const query = this.productRepository.createQueryBuilder("book").where("book.title LIKE :title", {title: `%${filter?.title ? filter.title : ''}%`}).andWhere("book.author LIKE :author", {author: `%${filter?.author ? filter.author : ''}%`}).andWhere("book.genres LIKE :genres", {genres: `%${filter?.genres ? filter.genres : ''}%`}).andWhere("book.tags LIKE :tags", {tags: `%${filter?.tags ? filter.tags : ''}%`}).andWhere("book.other LIKE :other", {other: `%${filter?.other ? filter.other : ''}%`})
+    async getFiltered(filter: { books: BookEntity, limit: number }): Promise<BookEntity[]> {
+        const query = this.productRepository.createQueryBuilder("book").where("book.title LIKE :title", {title: `%${filter.books?.title ? filter.books.title : ''}%`}).andWhere("book.author LIKE :author", {author: `%${filter.books?.author ? filter.books.author : ''}%`}).andWhere("book.genres LIKE :genres", {genres: `%${filter.books?.genres ? filter.books.genres : ''}%`}).andWhere("book.tags LIKE :tags", {tags: `%${filter.books?.tags ? filter.books.tags : ''}%`}).andWhere("book.other LIKE :other", {other: `%${filter.books?.other ? filter.books.other : ''}%`}).limit(filter.limit)
         return await query.getMany()
     }
 

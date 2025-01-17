@@ -10,7 +10,6 @@
 /api/build
 
 /api/package-lock.json
-/api/apiDB.db
 
 # Logs
 /api/logs

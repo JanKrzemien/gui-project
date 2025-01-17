@@ -1,27 +1,18 @@
 .product-section {
-  width: 100%;
-  max-width: 1441px;
-  margin: 0 auto;
+  margin-top: 60px;
+  width: 80vw;
 }
 
 .section-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 30px;
   margin-bottom: 9px;
   padding: 0 20px;
 }
 
-.title-container {
-  width: 180px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-}
-
 .title {
-  font-family: 'Kiwi Maru', serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 20px;
   font-weight: 400;
   margin: 0;
@@ -32,24 +23,24 @@
 .view-more-btn {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px; 
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0;
-  height: 30px;
 }
 
-.view-more-btn span {
-  font-family: 'Kiwi Maru', serif;
+.view-more-btn :hover {
+  text-decoration: underline;
+}
+.view-more-btn .material-icons {
+  text-decoration: none !important;
+}
+
+.view-more-btn-text {
+  font-family: 'Roboto', sans-serif;
   font-size: 20px;
   font-weight: 400;
   color: #000000;
-}
-
-.arrow-icon {
-  width: 20px;
-  height: 20px;
 }
 
 .products-container {
