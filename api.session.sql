@@ -1,1 +1,1 @@
-DELETE FROM user_entity
+SELECT * FROM book_entity
