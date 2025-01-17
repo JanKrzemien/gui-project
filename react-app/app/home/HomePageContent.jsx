@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import { Carousel } from '../shared-components/Carousel';
 import { useLocalStorage } from '@uidotdev/usehooks';
 import { ProductSection } from '../shared-components/ProductSection';
+import { useLocalStorage } from '@uidotdev/usehooks'
 import './HomePageContent.css';
 
 export const HomePageContent = () => {
@@ -21,7 +23,10 @@ export const HomePageContent = () => {
         method: "POST",
         body: JSON.stringify(
           {
-            tags: 'Nowe'
+            books: {
+              tags: 'Nowe'
+            },
+            limit: 5
           }
         ),
         headers: {
@@ -43,7 +48,10 @@ export const HomePageContent = () => {
           method: "POST",
           body: JSON.stringify(
             {
-              tags: 'Bestsellery'
+              books: {
+                tags: 'Bestsellery'
+              },
+              limit: 5
             }
           ),
           headers: {
@@ -64,7 +72,7 @@ export const HomePageContent = () => {
     <div className="home-page">
       <Carousel />
       <ProductSection title="Nowości" products={newBooks} />
-      <ProductSection title="Popularne" products={popularBooks}/>
+      <ProductSection title="Popularne"products={popularBooks}/>
     </div>
   );
 };

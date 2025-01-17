@@ -9,11 +9,9 @@ export const ProductCard = (
       productPicture: 'default',
       title: 'default title',
       author: 'default author',
-      global_rating: 0,
-      // starImage: 'https://dashboard.codeparrot.ai/api/assets/Z4EEWQIBBLnlud4m'
-    }, index
+      globalRating: 0
+    }
   }) => {
-  console.debug(product)
   let image = () => {
     const byteCharacters = atob(product.productPicture);
     const byteNumbers = new Array(byteCharacters.length);
@@ -25,8 +23,8 @@ export const ProductCard = (
     return URL.createObjectURL(new Blob([byteArray], { type: 'image/jpeg' }));
   }
   
-  return <div className="product-card">
-              <div className="product-image-container">
+  return  <div className="product-card">
+            <div className="product-image-container">
                 {
                   product.productPicture == 'default' ? (
                     <span className="material-icons">import_contacts</span>
@@ -35,13 +33,12 @@ export const ProductCard = (
                   )
                 }
                 <button className="add-to-list-btn">+ Add to list</button>
-              </div>
-              <h3 className="product-name">{product.title}</h3>
-              <p className="product-author">{product.author}</p>
-              <div className="rating-container">
-                <span className="rating">{product.global_rating}</span>
-                <span className="material-icons">star</span>
-                {/* <img src={product.starImage} alt="rating star" className="star-icon" /> */}
-              </div>
             </div>
+            <p className="product-name">{product.title}</p>
+            <p className="product-author">{product.author}</p>
+            <div className="rating-container">
+              <span className="rating">{product.globalRating}</span>
+              <span className="material-icons">star</span>
+            </div>
+          </div>
 }
