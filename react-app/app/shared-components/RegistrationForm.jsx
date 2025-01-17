@@ -13,8 +13,11 @@ export const RegistrationForm = ({ onSubmit }) => {
 
   const [formData, setFormData] = useState({
     email: '',
-    password: ''
+    email_repeat: '',
+    password: '',
+    username: ''
   });
+  const [error, setError] = useState(false)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,31 +27,36 @@ export const RegistrationForm = ({ onSubmit }) => {
     }));
   };
 
+  const checkInput = () => {
+    //TODO finish
+  }
+
   const handleSubmit = async (e) => {
-    // e.preventDefault();
-    // const url = "http://localhost:3000/auth/login"
-    // const data = {
-    //   email: formData.email,
-    //   password: formData.password,
-    // }
-    // await fetch(url, {
-    //   method: "POST",
-    //   body: JSON.stringify(data),
-    //   headers: {
-    //     "Content-Type": "application/json"
-    //   },
-    // }).then(res => res.json())
-    //   .then(data => {
-    //     console.log(JSON.stringify(data))
-    //     setUserData({
-    //       user: data.user,
-    //       token: data.access_token
-    //     })
-    //     navigate('/')
-    //   })
-    //   .catch(function(error) {
-    //     console.log(error);
-    //   });
+    checkInput()
+
+    e.preventDefault();
+    const url = "http://localhost:3000/auth/signup"
+    const data = {
+      auth: {
+        email: formData.email,
+        password: formData.password,
+        role: 'user',
+        isActive: true
+      },
+      info: {
+        username: formData.username
+      }
+    }
+    await fetch(url, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json"
+      },
+    }).then(res => {
+      if(res.ok)
+        navigate('/login')
+    })
   };
 
   return !userData ? (

@@ -12,8 +12,6 @@ export const MainNavigation = () => {
 
   const [userData, setUserData] = useLocalStorage('userData', undefined)
 
-  console.log(userData)
-
   const [category, setCategory] = useState('Wszystkie');
 
   const handleCategoryChange = (event) => {

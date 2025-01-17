@@ -1,5 +1,6 @@
 import React from 'react';
 import './ProductSection.css';
+import 'material-icons/iconfont/material-icons.css'
 
 import { ProductCard } from './ProductCard';
 import { Separator } from './Separator'

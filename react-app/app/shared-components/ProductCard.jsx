@@ -1,5 +1,6 @@
 import React from 'react';
 import './ProductCard.css';
+import 'material-icons/iconfont/material-icons.css'
 
 export const ProductCard = (
   {

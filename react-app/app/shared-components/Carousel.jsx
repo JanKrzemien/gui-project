@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './Carousel.css';
+import 'material-icons/iconfont/material-icons.css'
+
 
 export const Carousel = ({ 
   slides = [

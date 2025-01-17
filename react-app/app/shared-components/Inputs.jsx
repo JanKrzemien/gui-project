@@ -13,7 +13,7 @@ export const OutlinedInput = ({ label, type = "text", onChange, name="" }) => {
     );
 };
 
-export const StandardInput = ({ label, type = "text", onClick, name }) => {
+export const StandardInput = ({ label, type = "text", onChange, name="" }) => {
 return (
     <TextField variant="standard"
         name={name}

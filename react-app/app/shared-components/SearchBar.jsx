@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
-import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
-import { IconOutlineButton } from './Buttons';
+import { Search as SearchIcon } from '@mui/icons-material';
+import { IconButton } from '@mui/material';
 import './SearchBar.css';
 
 export const SearchBar = ({ onSearch }) => {
-  const handleSearch = (event) => {
+  const [searchText, setSearchText] = useState('');
+
+  const handleChange = (event) => {
+    setSearchText(event.target.value);
+  };
+
+  const handleSearch = () => {
     if (onSearch) {
-      onSearch(event.target.value);
+      onSearch(searchText);
     }
   };
 
@@ -16,15 +22,13 @@ export const SearchBar = ({ onSearch }) => {
       <TextField
         variant="outlined"
         placeholder="Szukaj książek, autorów i więcej"
-        onChange={handleSearch}
+        value={searchText}
+        onChange={handleChange}
         className="search-input"
       />
-      <IconOutlineButton
-        onClick={() => onSearch?.(document.querySelector('.search-input').value)}
-        className="search-button"
-      >
-        <SearchOutlinedIcon />
-      </IconOutlineButton>
+      <IconButton onClick={handleSearch} className="search-button">
+        <SearchIcon />
+      </IconButton>
     </div>
   );
 };
