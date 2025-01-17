@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import './Carousel.css';
+import 'material-icons/iconfont/material-icons.css'
+
 
 export const Carousel = ({ 
   slides = [
     {
-      image: 'https://dashboard.codeparrot.ai/api/assets/Z4EEOgIBBLnlud4i',
+      image_path: '../../public/carousel-slide-1.png',
       title: 'Targi książi 2024!',
       description: '4 dni, około 56 tysięcy odwiedzających, ponad 470 wystawców, ponad 800 autorów, ponad 600 akredytowanych dziennikarzy i twórców treści internetowych, 900 spotkań, prezentacji, warsztatów, 30 tysięcy widzów TV Targowej – tak w skrócie można podsumować 27. Międzynarodowe Targi Książki w Krakowie®, które odbyły się w dniach 24-27 października 2024 r.'
     }
@@ -28,17 +30,17 @@ export const Carousel = ({
     <div className="carousel-container">
       <div className="carousel-wrapper">
         <img 
-          src={slides[currentIndex].image} 
-          alt={slides[currentIndex].title}
+          src={slides[currentIndex].image_path} 
+          alt={slides[currentIndex].image_path}
           className="carousel-image"
         />
         
         <button className="carousel-button left" onClick={goToPrevious}>
-          <img src="https://dashboard.codeparrot.ai/api/assets/Z4EEOgIBBLnlud4j" alt="Previous" />
+          <span className="material-icons">arrow_left_alt</span>
         </button>
         
         <button className="carousel-button right" onClick={goToNext}>
-          <img src="https://dashboard.codeparrot.ai/api/assets/Z4EEOgIBBLnlud4k" alt="Next" />
+          <span className="material-icons">arrow_right_alt</span>
         </button>
 
         <div className="content-overlay">

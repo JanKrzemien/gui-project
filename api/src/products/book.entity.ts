@@ -17,6 +17,9 @@ export class BookEntity {
     @Column()
     summary: string
 
+    @Column('decimal')
+    global_rating: number
+
     @Column()
     genres: string
 
