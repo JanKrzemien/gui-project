@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import { Carousel } from '../shared-components/Carousel';
 import { useLocalStorage } from '@uidotdev/usehooks';
 import { ProductSection } from '../shared-components/ProductSection';
+import { useLocalStorage } from '@uidotdev/usehooks'
 import './HomePageContent.css';
 
 export const HomePageContent = () => {
