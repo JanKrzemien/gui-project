@@ -1,3 +1,4 @@
+/*
 .book-list-container {
   width: 700px;
   padding: 20px;
@@ -20,6 +21,40 @@
   gap: 20px;
   justify-content: center;
 }
+*/
+.books-section {
+  width: 674px;
+  min-height: 277px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.books-title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: #000000;
+  margin: 0;
+  padding: 10px 0;
+}
+
+.books-container {
+  background: #F0F0F0;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+
+
+
 
 .book-item {
   width: 140px;
