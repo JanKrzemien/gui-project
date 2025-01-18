@@ -20,6 +20,7 @@ return (
         label={label}
         type={type}
         onChange={(e) => onChange(e)}
+        color="warning"
     />
 );
 };
