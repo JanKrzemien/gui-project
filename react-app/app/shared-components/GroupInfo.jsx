@@ -1,4 +1,5 @@
 import './GroupInfo.css';
+import { ContainedButton } from './Buttons';
 
 export const GroupInfo = ({ 
   groupName = "Nazwa grupy",
@@ -20,12 +21,8 @@ export const GroupInfo = ({
           {description}
         </div>
         <div className="group-actions">
-          <button className="action-button" onClick={onAddThread}>
-            Dodaj wątek
-          </button>
-          <button className="action-button" onClick={onJoin}>
-            Dołącz
-          </button>
+          <ContainedButton text="Dodaj wątek" onClick={onAddThread}/>
+          <ContainedButton text="Dołącz" onClick={onJoin}/>
         </div>
       </div>
     </div>
