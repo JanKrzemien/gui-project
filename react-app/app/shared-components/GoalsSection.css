@@ -3,7 +3,7 @@
   min-height: 277px;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 16px;
   border: 1px solid #E0E0E0;
   border-radius: 8px;
   padding: 10px;
