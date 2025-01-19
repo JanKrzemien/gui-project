@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useNavigate } from 'react-router'
 import { useLocalStorage } from '@uidotdev/usehooks';
 import './ProductCard.css';
@@ -17,20 +17,11 @@ export const ProductCard = (
     const navigate = useNavigate()
     const [userData, setUserData] = useLocalStorage('userData', undefined)
 
-  const image = () => {
-    const byteCharacters = atob(product.productPicture);
-    const byteNumbers = new Array(byteCharacters.length);
-    for (let i = 0; i < byteCharacters.length; i++) {
-        byteNumbers[i] = byteCharacters.charCodeAt(i);
-    }
-    const byteArray = new Uint8Array(byteNumbers);
-
-    return URL.createObjectURL(new Blob([byteArray], { type: 'image/jpeg' }));
-  }
+    const [btnText, setBtnText] = useState('+ Dodaj do listy')
 
   const handleAddToList = () => {
     if(userData) {
-      console.log('fetchuje')
+      setBtnText('Już na liście')
     } else {
       navigate('/login')
     }
@@ -43,11 +34,11 @@ export const ProductCard = (
                     product.productPicture == 'default' ? (
                       <span className="material-icons">import_contacts</span>
                     ) : (
-                      <img src={image()} alt="product-image" className="product-image" />
+                      <img src={product.productPicture} alt="product-image" className="product-image" />
                     )
                   }
                 </a>
-                <button className="add-to-list-btn" onClick={handleAddToList}>+ Add to list</button>
+                <button className="add-to-list-btn" onClick={handleAddToList}>{btnText}</button>
               </div>
               <a className="product-name" onClick={() => navigate(`/product/${product.book_id}`)}>
                 <p className="product-name">{product.title}</p>

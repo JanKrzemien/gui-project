@@ -1,7 +1,7 @@
 import React from 'react';
 import {TextField} from '@mui/material';
 
-export const OutlinedInput = ({ label, type = "text", onChange, name="" }) => {
+export const OutlinedInput = ({ label, type = "text", onChange, name="", onFocus = () => {}, onBlur = () => {} }) => {
     return (
         <TextField variant="outlined"
                 name={name}
@@ -9,6 +9,8 @@ export const OutlinedInput = ({ label, type = "text", onChange, name="" }) => {
                 type={type}
                 sx={styles.outlinedInput}
                 onChange={(e) => onChange(e)}
+                onFocus={onFocus}
+                onBlur={onBlur}
         />
     );
 };

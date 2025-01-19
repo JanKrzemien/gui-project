@@ -31,7 +31,7 @@
 .nav-middle-group {
   display: flex;
   align-items: center;
-  gap: 20px;
+  justify-content: center;
   height: 40px;
 }
 
@@ -42,13 +42,13 @@
 /* Container styling for the entire FormControl */
 .category-select {
   width: 150px;
-  height: 40px;
-  font-family: 'Kiwi Maru', serif;
+  height: 44px;
+  font-family: 'Nunito', sans-serif;
 }
 
 /* Styling for the InputLabel */
 .category-select-label {
-  font-family: 'Kiwi Maru', serif;
+  font-family: 'Nunito', sans-serif;
   color: #000;
 }
 
@@ -59,9 +59,9 @@
 
 /* Styling for the Select container */
 .category-select-container {
-  font-family: 'Kiwi Maru', serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 16px;
-  height: 40px;
+  height: 44px;
   background-color: #ffffff;
   border-radius: 8px;
 }
@@ -84,7 +84,7 @@
 
 /* Styling for the dropdown menu items */
 .MuiMenuItem-root {
-  font-family: 'Kiwi Maru', serif;
+  font-family: 'Nunito', sans-serif; 
   color: #444;
 }
 
@@ -116,11 +116,70 @@
 .input-box {
   width: 288px;
   height: 40px;
-
+  position: relative;
 }
 
-.search-btn {
-  width: 51px;
+.short-search-results {
+  display: none;
+  width: 288px;
+  position: absolute;
+  border-radius: 4px;
+  box-shadow: #000;
+  top: 44px;
+  left: 0px;
+  background-color: #fff;
+  z-index: 100;
+}
+/* 
+.short-search-results[open="f"] {
+  display: none;
+  animation-name: results_disappear;
+  animation-duration: 0.2s;
+}
+
+.short-search-results[open="t"] {
+  display: block;
+  animation-name: results_appear;
+  animation-duration: 0.2s;
+} */
+
+/* @keyframes results_appear {
+  from {
+    display: none;
+    opacity: 0;
+  }
+  to {
+    display: block;
+    opacity: 1;
+  }
+}
+
+@keyframes results_disappear {
+  from {
+    display: block;
+    opacity: 1;
+  }
+  to {
+    display: none;
+    opacity: 0;
+  }
+} */
+
+.MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-colorPrimary.MuiInputBase-formControl.css-quhxjy-MuiInputBase-root-MuiOutlinedInput-root :hover {
+  border: none;
+}
+
+.MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-colorPrimary.MuiInputBase-formControl.css-quhxjy-MuiInputBase-root-MuiOutlinedInput-root input {
+  height: 44px;
+  padding: 0px 14px;
+}
+
+.MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-colorPrimary.MuiInputBase-formControl.css-quhxjy-MuiInputBase-root-MuiOutlinedInput-root fieldset {
+  height: 44px;
+}
+
+/* .search-btn {
+  width: 50px;
   height: 40px;
   display: flex;
   align-items: center;
@@ -134,7 +193,7 @@
 .search-icon {
   width: 20px;
   height: 20px;
-}
+} */
 
 .nav-right-btn-group {
   display: flex;
