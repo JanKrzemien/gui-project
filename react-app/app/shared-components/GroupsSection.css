@@ -1,18 +1,17 @@
 .groups-section {
-  width: 770px;
-  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.groups-section-title {
+  margin: 0 0 20px 15px;  
+}
+
+.groups-section-title h2 {
   font-family: 'Roboto', sans-serif;
-}
-
-.title {
-  margin-bottom: 24px;
-}
-
-.title h2 {
-  font-family: 'Nunito', sans-serif;
   font-size: 20px;
   font-weight: 400;
-  color: #000000;
   margin: 0;
 }
 
@@ -20,10 +19,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-}
-
-.group-item {
-  width: 100%;
+  flex: 1;
 }
 
 .group-container {
@@ -58,21 +54,19 @@
 .group-name {
   font-size: 16px;
   font-weight: 400;
-  color: #000000;
+  font-family: 'Roboto', sans-serif;
 }
 
 .group-description {
   font-family: 'Nunito', sans-serif;
   font-size: 12px;
   font-weight: 400;
-  color: #000000;
 }
 
 .last-active {
   font-family: 'Nunito', sans-serif;
   font-size: 12px;
   font-weight: 400;
-  color: #000000;
   padding: 10px;
 }
 
@@ -86,11 +80,3 @@
   font-weight: 400;
   cursor: pointer;
 }
-
-.separator {
-  width: 764px;
-  height: 1px;
-  background-color: #E0E0E0;
-  margin-top: 16px;
-}
-

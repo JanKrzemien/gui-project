@@ -1,27 +1,57 @@
 .book-details {
   display: flex;
-  gap: 56px;
-  padding: 20px;
-  font-family: 'Roboto', sans-serif;
+  gap: 50px;
+  height: fit-content;
 }
 
 .product-image-container {
-  width: 316px;
-  height: 466px;
+  width: 100%;
   background-color: #838383;
   border-radius: 4px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 20px;
 }
 
-.book-image {
-  width: 128px;
-  height: 97px;
-  margin-top: 163px;
-  object-fit: contain;
+.product-page-product-image {
+  border-radius: inherit;
+  width: inherit;
+  object-fit:cover;
+}
+
+/* .description-container {
+  width: 100%;
+} */
+
+/* .title-section {
+  margin-bottom: 20px;
+} */
+
+.book-title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  margin: 0 0 15px 15px;
+}
+
+.section-title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  margin: 0 0 15px 15px;
+}
+
+.book-description {
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0 0 15px 15px;
+}
+
+.products-management-btns-container {
+  margin: 0 0 15px 15px;
 }
 
 .reading-button {
@@ -37,45 +67,3 @@
   cursor: pointer;
   margin-bottom: 20px;
 }
-
-.description-container {
-  flex: 1;
-  max-width: 773px;
-}
-
-.title-section {
-  margin-bottom: 20px;
-}
-
-.book-title {
-  font-family: 'Nunito', sans-serif;
-  font-size: 20px;
-  font-weight: 400;
-  margin: 0 0 20px 17px;
-  color: #000;
-}
-
-.section-title {
-  font-family: 'Nunito', sans-serif;
-  font-size: 20px;
-  font-weight: 400;
-  margin: 0 0 20px 22px;
-  color: #000;
-}
-
-.book-description {
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.5;
-  margin: 0 12px;
-  color: #000;
-}
-
-.separator {
-  width: 764px;
-  height: 1px;
-  background-color: #E0E0E0;
-  margin: 20px auto;
-}
-
