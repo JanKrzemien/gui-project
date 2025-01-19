@@ -9,12 +9,15 @@ import {
 
 import { MainNavigation } from './shared-components/MainNavigation'
 
+import { useLocalStorage } from "@uidotdev/usehooks";
+
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
 import stylesheet from "./app.css?url";
+import { useEffect } from "react";
 
 export const links = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -49,11 +52,34 @@ export function Layout({ children }) {
 }
 
 export default function App() {
+  const [books, setBooks] = useLocalStorage('books', [])
+  const [groups, setGroups] = useLocalStorage('groups', [])
+
+  useEffect(() => {
+    getBooks()
+    getGroups()
+  })
+
+  const getBooks = async () => {
+    const res = await fetch('http://localhost:3000/products/getall')
+    if(res.ok) {
+      let data = await res.json()
+      setBooks(data)
+    }
+  }
+
+  const getGroups = async () => {
+    const res = await fetch('http://localhost:3000/groups/getall')
+    if(res.ok) {
+      let data = await res.json()
+      setGroups(data)
+    }
+  }
+
   return <>
           <MainNavigation />
           <Outlet />
         </>
-  
   ;
 }
 
