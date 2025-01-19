@@ -1,4 +1,5 @@
 import React from 'react';
+import { Separator } from './Separator';
 import './GroupsSection.css';
 
 const defaultGroups = [
@@ -13,9 +14,12 @@ const defaultGroups = [
 export const GroupsSection = ({ groups = defaultGroups }) => {
   return (
     <div className="groups-section">
-      <div className="title">
+      <div className="groups-section-title">
         <h2>Grupy związane z książką</h2>
       </div>
+
+      <Separator />
+
       <div className="groups-list">
         {groups.map((group, index) => (
           <div key={index} className="group-item">
@@ -37,7 +41,9 @@ export const GroupsSection = ({ groups = defaultGroups }) => {
           </div>
         ))}
       </div>
-      <div className="separator" />
+
+      <Separator />
+    
     </div>
   );
 };

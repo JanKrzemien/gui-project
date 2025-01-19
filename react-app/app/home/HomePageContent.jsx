@@ -70,7 +70,7 @@ export const HomePageContent = () => {
     <div className="home-page">
       <Carousel />
       <ProductSection title="Nowości" products={newBooks} />
-      <ProductSection title="Popularne"products={popularBooks}/>
+      <ProductSection title="Popularne" products={popularBooks}/>
     </div>
   );
 };

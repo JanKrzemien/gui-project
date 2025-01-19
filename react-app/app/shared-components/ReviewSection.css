@@ -1,15 +1,50 @@
 .review-section {
-  width: 1095px;
-  font-family: 'Nunito', sans-serif;
-  margin: 0;
-  padding: 10px 0;
+  width: 70vw;
+}
+
+.review-container {
+  margin-bottom: 20px;
+  height: 0px;
+  display: none;
+  animation: disappear 1s;
+}
+
+.review-container[open='true'] {
+  margin-bottom: 20px;
+  height: 100%;
+  display: block;
+  animation: appear 1s;
+}
+
+@keyframes appear {
+  from {
+    display: none;
+  }
+  to {
+    display: block;
+  }
+}
+
+@keyframes disappear {
+  from {
+    display: block;
+  }
+  to {
+    display: none;
+  }
+}
+
+.review-title-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .review-title {
+  font-family: 'Roboto', sans-serif;
   font-size: 20px;
   font-weight: 400;
-  color: #000000;
-  margin: 0 0 35px 0;
+  margin: 0 0 20px 0;
 }
 
 .rating-section {
@@ -20,14 +55,14 @@
 }
 
 .rating-label {
+  font-family: 'Roboto', sans-serif;
   font-size: 20px;
   font-weight: 400;
-  color: #000000;
 }
 
 .stars {
   display: flex;
-  gap: 12px;
+  gap: 8px;
 }
 
 .star-icon {
@@ -43,14 +78,14 @@
 }
 
 .text-label {
+  font-family: 'Roboto', sans-serif;
   font-size: 20px;
   font-weight: 400;
-  color: #000000;
 }
 
 .textarea-container {
   position: relative;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .review-textarea {
@@ -59,7 +94,7 @@
   padding: 16px 12px;
   border: 2px solid #f29966;
   border-radius: 4px;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 16px;
   resize: none;
   background: #ffffff;
@@ -90,31 +125,4 @@
   display: flex;
   justify-content: space-between;
   padding: 0 20px;
-}
-
-.cancel-button,
-.submit-button {
-  padding: 8px 22px;
-  border: none;
-  border-radius: 4px;
-  background-color: #f29966;
-  color: #ffffff;
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.cancel-button {
-  min-width: 83px;
-}
-
-.submit-button {
-  min-width: 116px;
-}
-
-.cancel-button:hover,
-.submit-button:hover {
-  background-color: #e88951;
 }

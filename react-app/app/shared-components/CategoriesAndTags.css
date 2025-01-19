@@ -1,39 +1,23 @@
 .categories-container {
-  width: 316px;
-  font-family: 'Nunito', sans-serif;
-  margin: 0 auto;
+  display:inline-block;
+  width: 30%;
 }
 
-.section-text {
+.category-section-text,
+.tags-section-text,
+.other-section-text,
+.author-section-text {
+  font-family: 'Nunito', sans-serif;
   font-size: 20px;
   font-weight: 400;
-  color: #000000;
-  margin: 0;
-  padding: 20px 5px;
+  margin-bottom: 20px;
   line-height: 1.4;
-}
-
-.separator {
-  width: 100%;
-  height: 1px;
-  display: block;
+  display:inline-block;
 }
 
 .category-section,
 .tags-section,
+.other-section,
 .author-section {
   width: 100%;
 }
-
-.category-section .section-text {
-  min-height: 58px;
-}
-
-.tags-section .section-text {
-  min-height: 67px;
-}
-
-.author-section .section-text {
-  min-height: 64px;
-}
-
