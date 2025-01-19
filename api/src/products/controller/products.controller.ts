@@ -26,4 +26,9 @@ export class ProductsController {
     async getOneBook(@Body() body: { book_id: number }): Promise<BookEntity> {
         return this.productsService.getOne(body.book_id)
     }
+
+    @Get('getall')
+    async getAllBooks(): Promise<BookEntity[]> {
+        return this.productsService.getAll()
+    }
 }

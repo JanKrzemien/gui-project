@@ -1,0 +1,1 @@
+UPDATE book_entity SET productPicture = "/book-8.webp" WHERE book_id = 8
