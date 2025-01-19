@@ -1,33 +1,46 @@
 import React from 'react';
+import { Separator } from './Separator';
 import './CategoriesAndTags.css';
 
 export const CategoriesAndTags = ({
-  categories = ['Przygodowe', 'Fantasy'],
-  tags = ['Ksiazkaroku2024'],
-  author = 'Jan Kowalski'
+  categories = [],
+  tags = [],
+  other = [],
+  author = ''
 }) => {
   return (
     <div className="categories-container">
       <div className="category-section">
-        <p className="section-text">
+        <p className="category-section-text">
           Kategorie: {categories.join(', ')}
         </p>
-        <img src="https://dashboard.codeparrot.ai/api/assets/Z4FhkgIBBLnlud61" alt="separator" className="separator" />
       </div>
+
+      <Separator />
       
       <div className="tags-section">
-        <p className="section-text">
+        <p className="tags-section-text">
           Tagi: {tags.map(tag => `#${tag}`).join(', ')}
         </p>
-        <img src="https://dashboard.codeparrot.ai/api/assets/Z4FhkgIBBLnlud62" alt="separator" className="separator" />
       </div>
       
-      <div className="author-section">
-        <p className="section-text">
-          Inne: Autor: {author}
+      <Separator />
+
+      <div className="other-section">
+        <p className="other-section-text">
+          Inne: {other.join(', ')}
         </p>
-        <img src="https://dashboard.codeparrot.ai/api/assets/Z4FhkgIBBLnlud63" alt="separator" className="separator" />
       </div>
+
+      <Separator />
+
+      <div className="author-section">
+        <p className="author-section-text">
+        Autor: {author}
+        </p>
+      </div>
+      
+      <Separator />
     </div>
   );
 };

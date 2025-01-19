@@ -1,4 +1,5 @@
 import './ThreadsContainer.css';
+import { ContainedButton } from './Buttons';
 
 export const ThreadsContainer = ({ threads = [
   {
@@ -80,8 +81,8 @@ export const ThreadsContainer = ({ threads = [
             </div>
           </div>
           <div className="action-buttons">
-            <button className="edit-btn" onClick={() => onEdit(thread.id)}>Edytuj</button>
-            <button className="delete-btn" onClick={() => onDelete(thread.id)}>Usuń</button>
+            <ContainedButton text="Edytuj" onClick={() => onEdit(thread.id)}/>
+            <ContainedButton text="Usuń" onClick={() => onDelete(thread.id)}/>
           </div>
         </div>
       ))}
