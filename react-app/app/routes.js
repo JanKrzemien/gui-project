@@ -12,6 +12,8 @@ export default [
     // jeśli będzie trzeba można tutaj zastosować layout w celu współdzielenia na przykład filtrów w wynikach wyszukiwania
     // w zależności jak będzie robione wyszukiwanie te podstrony mogą potrzebować parametr w przyszłości
     route("products", "routes/products.jsx"),
+
     route("groups", "routes/groups.jsx"),
+
     route("users", "routes/users.jsx")
 ];
