@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import './FilterSidebar.css';
+import { ContainedButton } from './Buttons';
 
 export const FilterSidebar = ({ onFilterChange }) => {
   const [filters, setFilters] = useState({
@@ -28,6 +29,19 @@ export const FilterSidebar = ({ onFilterChange }) => {
     });
   };
 
+  const clearFilters = () => {
+    const clearedFilters = {
+      genre: [],
+      hobby: [],
+      targetGroup: [],
+      publisher: []
+    };
+    setFilters(clearedFilters);
+    if (onFilterChange) {
+      onFilterChange(clearedFilters);
+    }
+  };
+
   const filterCategories = [
     { name: 'genre', label: 'Gatunek:' },
     { name: 'hobby', label: 'Hobby:' },
@@ -41,6 +55,13 @@ export const FilterSidebar = ({ onFilterChange }) => {
     <div className="filter-sidebar">
       <h2 className="filter-title">Dostosuj filtry:</h2>
       
+      <div className="button-container">
+        <ContainedButton
+          text="Wyczyść filtry"
+          onClick={clearFilters}
+        />
+      </div>
+
       {filterCategories.map((category) => (
         <div key={category.name} className="filter-section">
           <h3 className="section-title">{category.label}</h3>
