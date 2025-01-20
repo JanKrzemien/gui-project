@@ -38,3 +38,12 @@ export const GroupsSection = ({ groups = defaultGroups }) => {
   );
 };
 
+const defaultGroups = [
+  {
+    name: 'Group-name',
+    description: 'Group description',
+    lastActive: '2 hours ago',
+    imageUrl: '/group-icon.png'
+  }
+];
+

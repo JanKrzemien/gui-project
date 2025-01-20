@@ -2,7 +2,7 @@ import React from 'react';
 import './Filters.css';
 import { FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 
-export const FiltersSection = ({ onSortChange, onMembershipChange, onTypeChange, sortValue, membershipValue, typeValue }) => {
+export const Filters = ({ onSortChange, onMembershipChange, onTypeChange, sortValue, membershipValue, typeValue }) => {
   return (
     <div className="filters-container">
       <div className="title-container">
