@@ -1,81 +1,80 @@
 import React, { useState } from 'react';
 import './MainNavigation.css';
 import { ContainedButton, OutlineButton, TextButton } from './Buttons';
-import { OutlinedInput } from './Inputs'
+import { OutlinedInput } from '@mui/material';
 import { Select, MenuItem, FormControl, InputLabel, Avatar } from '@mui/material';
 import { useNavigate } from "react-router";
-import { useLocalStorage } from '@uidotdev/usehooks'
-import 'material-icons/iconfont/material-icons.css'
+import { useLocalStorage } from '@uidotdev/usehooks';
+import 'material-icons/iconfont/material-icons.css';
 import { SmallProductCard } from './smallProductCard';
 
 export const MainNavigation = () => {
   let navigate = useNavigate();
 
-  const [userData, setUserData] = useLocalStorage('userData', undefined)
-  const [books, setBooks] = useLocalStorage('books', [])
-  const [groups, setGroups] = useLocalStorage('groups', [])
-
+  const [userData, setUserData] = useLocalStorage('userData', undefined);
+  const [books, setBooks] = useLocalStorage('books', []);
+  const [groups, setGroups] = useLocalStorage('groups', []);
 
   const [category, setCategory] = useState('Wszystkie');
   const [search, setSearch] = useState('');
-  const [filtered, setFiltered] = useState(books.slice(0, 3))
+  const [filtered, setFiltered] = useState(books.slice(0, 3));
 
   const navigateSearch = () => {
-    let url = ``
+    let url = ``;
     switch(category) {
       case "Wszystkie":
       case "Książki":
-        url += `/products/?title=${search}`
-        break
+        url += `/products/?title=${search}`;
+        break;
       case "Autorzy":
-        url += `/products/?author=${search}`
-        break
+        url += `/products/?author=${search}`;
+        break;
       case "Inne":
-        url += `/groups/?name=${search}`
-        break
+        url += `/groups/?name=${search}`;
+        break;
     }
-    navigate(url)
-  }
+    navigate(url);
+  };
 
   const handleSearchBarChange = (event) => {
-    setSearch(event.target.value)
+    setSearch(event.target.value);
 
     switch(category) {
       case "Wszystkie":
       case "Książki":
-        setFiltered( books.filter((book, index) => book.title.includes(search)).slice(0, 3) )
-        break
+        setFiltered( books.filter((book, index) => book.title.includes(search)).slice(0, 3) );
+        break;
       case "Autorzy":
-        setFiltered( books.filter((book, index) => book.author.includes(search)).slice(0, 3) )
-        break
+        setFiltered( books.filter((book, index) => book.author.includes(search)).slice(0, 3) );
+        break;
       case "Inne":
-        setFiltered( groups.filter((group, index) => group.name.includes(search)).slice(0, 3) )
-        break
+        setFiltered( groups.filter((group, index) => group.name.includes(search)).slice(0, 3) );
+        break;
     }
-  }
+  };
 
   const focusInAnimation = () => {
-    document.getElementsByClassName('short-search-results')[0].style.display = "block"
-  }
+    document.getElementsByClassName('short-search-results')[0].style.display = "block";
+  };
   const focusOutAnimation = () => {
     setTimeout(() => {
-      document.getElementsByClassName('short-search-results')[0].style.display = "none"
-    }, 500)
-  }
+      document.getElementsByClassName('short-search-results')[0].style.display = "none";
+    }, 500);
+  };
 
   const handleCategoryChange = (event) => {
     setCategory(event.target.value);
     switch(category) {
       case "Wszystkie":
       case "Książki":
-        setFiltered( books.filter((book, index) => book.title.includes(search)).slice(0, 3) )
-        break
+        setFiltered( books.filter((book, index) => book.title.includes(search)).slice(0, 3) );
+        break;
       case "Autorzy":
-        setFiltered( books.filter((book, index) => book.author.includes(search)).slice(0, 3) )
-        break
+        setFiltered( books.filter((book, index) => book.author.includes(search)).slice(0, 3) );
+        break;
       case "Inne":
-        setFiltered( groups.filter((group, index) => group.name.includes(search)).slice(0, 3) )
-        break
+        setFiltered( groups.filter((group, index) => group.name.includes(search)).slice(0, 3) );
+        break;
     }
   };
 
@@ -87,14 +86,30 @@ export const MainNavigation = () => {
         <TextButton text="Społeczność" onClick={() => navigate('/groups')} className="nav-btn" />
       </div>
 
-      <div className="nav-middle-group">
-        <FormControl variant="outlined" className="category-select">
-          <InputLabel className="category-select-label">Kategoria</InputLabel>
+      <div className="nav-middle-group" >
+        <FormControl variant="outlined" sx={{ width: 150, height: 40, fontFamily: 'Nunito, sans-serif' }}>
+          <InputLabel sx={{ fontFamily: 'Nunito, sans-serif', color: '#000', '&.Mui-focused': { color: '#666' } }}>Kategoria</InputLabel>
           <Select
             value={category}
             onChange={handleCategoryChange}
             label="Kategoria"
-            className="category-select-container"
+            sx={{
+              fontFamily: 'Nunito, sans-serif',
+              fontSize: 16,
+              height: 40,
+              backgroundColor: '#ffffff',
+              borderRadius: 2,
+              '& .MuiOutlinedInput-notchedOutline': {
+                borderColor: '#f29966',
+              },
+              '&:hover .MuiOutlinedInput-notchedOutline': {
+                borderColor: '#f29966',
+              },
+              '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                borderColor: '#f29966',
+                boxShadow: '0 0 5px rgba(242, 153, 102, 0.5)',
+              },
+            }}
           >
             <MenuItem value="Wszystkie">Wszystkie</MenuItem>
             <MenuItem value="Książki">Książki</MenuItem>
@@ -105,19 +120,68 @@ export const MainNavigation = () => {
 
         <div className="searchbar">
           <div className="input-box">
-              <OutlinedInput label="Szukaj książek, autorów i więcej" onChange={handleSearchBarChange} onFocus={focusInAnimation} onBlur={focusOutAnimation}/>
-              <div className='short-search-results' open='f'>
-                {
-                  filtered.map((item, index) => (
-                    <SmallProductCard product={item} key={index} />
-                  ))
-                }
-              </div>
-          </div>
-          <OutlineButton className="search-btn" text={<span className="material-icons">search</span>} onClick={navigateSearch}/>
+            <OutlinedInput
+              placeholder="Szukaj książek, autorów i więcej"
+              onChange={handleSearchBarChange}
+              onFocus={focusInAnimation}
+              onBlur={focusOutAnimation}
+              sx={{
+                fontFamily: 'Nunito, sans-serif',
+                fontSize: 16,
+                height: 40,
+                width: 290,
+                backgroundColor: '#ffffff',
+                borderRadius: 2,
+                '& .MuiOutlinedInput-notchedOutline': {
+                  borderColor: '#f29966',
+                },
+                '&:hover .MuiOutlinedInput-notchedOutline': {
+                  borderColor: '#f29966',
+                },
+                '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                  borderColor: '#f29966',
+                  boxShadow: '0 0 5px rgba(242, 153, 102, 0.5)',
+                },
+              }}
+            />
+            <div className='short-search-results' open='f'>
+              {
+                filtered.map((item, index) => (
+                  <SmallProductCard product={item} key={index} />
+                ))
+              }
+            </div>
+          </div  >
+          <OutlineButton className="search-btn"   text={
+    <span 
+      className="material-icons" 
+      style={{ fontSize: 24, color: '#f29966', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+    >
+      search
+    </span>
+      }  onClick={navigateSearch} 
+      sx={{
+        height: 40,
+        width: 40,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#f29966',
+        borderRadius: 2,
+        transition: 'background-color 0.3s, color 0.3s', 
+        '&:hover': {
+          backgroundColor: '#f29966',
+        },
+        '&:active': {
+          backgroundColor: '#ffd1b5',
+          '& .material-icons': {
+            color: '#ffd1b5',
+          },
+        },
+      }}
+    />
         </div>
       </div>
-
 
       {
         userData ? (
@@ -131,8 +195,6 @@ export const MainNavigation = () => {
           </div>
           )
       }
-
-      
     </nav>
   );
 };
