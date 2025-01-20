@@ -9,4 +9,12 @@ export class GroupsService {
     async getAll(): Promise<GroupEntity[]> {
         return await this.groupRepository.find()
     }
+
+    async getOne(id: number): Promise<GroupEntity> {
+        return this.groupRepository.findOne({
+            where: {
+                group_id: id
+            }
+        })
+    }        
 }

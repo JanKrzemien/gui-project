@@ -12,3 +12,20 @@ body {
   padding: 20px;
 }
 
+.activity-title-container {
+  width: 70vw;
+  height: 94px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.activity-title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0;
+  text-align: center;
+}
+
+

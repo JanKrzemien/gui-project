@@ -16,7 +16,7 @@ export class GroupEntity {
     description: string
     
     @Column()
-    groupPicture: string // base64 encoded picture
+    groupPicture: string // path to graphic in clients public dir
 
     @OneToMany(() => ThreadEntity, thread => thread.thread_id)
     thread: ThreadEntity[]

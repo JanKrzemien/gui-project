@@ -1,13 +1,19 @@
 import './GroupInfo.css';
 import { ContainedButton } from './Buttons';
+import { useState } from 'react';
 
 export const GroupInfo = ({ 
-  groupName = "Nazwa grupy",
-  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mattis sodales purus, eget tempus dolor luctus et. Proin eget dolor quis neque fringilla auctor eget in felis. Sed finibus sapien eu nibh vestibulum suscipit. Aliquam erat volutpat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur luctus augue nisi, at aliquet diam laoreet ut. Donec rutrum magna porta enim gravida ornare. Suspendisse potenti. Donec consequat augue tincidunt nulla vestibulum gravida.",
-  groupImage = "https://dashboard.codeparrot.ai/api/assets/Z4Fr-Ms5D--WlqKF",
-  onAddThread = () => {},
-  onJoin = () => {}
+  groupName,
+  description,
+  groupImage,
+  onAddThread = () => {}
 }) => {
+  const [btnText, setBtnText] = useState('Dołącz')
+
+  const onJoin = () => {
+    setBtnText("Jesteś członkiem")
+  }
+
   return (
     <div className="group-info">
       <div className="group-picture">
@@ -22,7 +28,7 @@ export const GroupInfo = ({
         </div>
         <div className="group-actions">
           <ContainedButton text="Dodaj wątek" onClick={onAddThread}/>
-          <ContainedButton text="Dołącz" onClick={onJoin}/>
+          <ContainedButton text={btnText} onClick={onJoin}/>
         </div>
       </div>
     </div>

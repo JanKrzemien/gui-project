@@ -1,15 +1,7 @@
 import React from 'react';
 import { Separator } from './Separator';
+import { ContainedButton } from './Buttons';
 import './GroupsSection.css';
-
-const defaultGroups = [
-  {
-    name: 'Group-name',
-    description: 'Group description',
-    lastActive: '2 hours ago',
-    imageUrl: 'https://dashboard.codeparrot.ai/api/assets/Z4FhkgIBBLnlud64'
-  }
-];
 
 export const GroupsSection = ({ groups = defaultGroups }) => {
   return (
@@ -34,9 +26,7 @@ export const GroupsSection = ({ groups = defaultGroups }) => {
               <div className="last-active">
                 Last active: {group.lastActive}
               </div>
-              <button className="join-button">
-                Join
-              </button>
+              <ContainedButton text={"Dołącz"}/>
             </div>
           </div>
         ))}
