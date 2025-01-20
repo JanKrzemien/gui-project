@@ -7,21 +7,6 @@ export const CommentsSection = ({ comments = [] }) => {
     console.log(comments)
   }, [JSON.stringify(comments)])
 
-  const renderStars = (rating) => {
-    return (
-      <div className="star-rating">
-        {[1, 2, 3, 4, 5].map((star) => (
-          <img
-            key={star}
-            src={star <= rating ? "https://dashboard.codeparrot.ai/api/assets/Z4FhowIBBLnlud65" : "https://dashboard.codeparrot.ai/api/assets/Z4FhowIBBLnlud66"}
-            alt={`star ${star}`}
-            className="star"
-          />
-        ))}
-      </div>
-    );
-  };
-
   return (
     <div className="comments-section">
       {comments.map((comment, index) => (

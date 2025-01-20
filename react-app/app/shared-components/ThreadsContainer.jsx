@@ -35,8 +35,8 @@ export const ThreadsContainer = ({ threads = [], onEdit = () => {}, onDelete = (
           {
             thread.users ? (
               <div className="action-buttons">
-                <ContainedButton text="Edytuj" onClick={() => onEdit(thread.id)}/>
-                <ContainedButton text="Usuń" onClick={() => onDelete(thread.id)}/>
+                <ContainedButton text="Edytuj" onClick={() => onEdit(index)}/>
+                <ContainedButton text="Usuń" onClick={() => onDelete(index)}/>
               </div>
             ) : ''
           }
