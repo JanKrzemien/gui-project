@@ -1,33 +1,8 @@
-import { useState } from 'react';
+import React from 'react';
 import './Filters.css';
+import { FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 
-export const Filters = ({ 
-  onSortChange = () => {},
-  onStatusChange = () => {},
-  onGenreChange = () => {},
-  initialSort = 'A do Z',
-  initialStatus = 'Nieprzeczytane',
-  initialGenre = 'Wszystkie'
-}) => {
-  const [sort, setSort] = useState(initialSort);
-  const [status, setStatus] = useState(initialStatus);
-  const [genre, setGenre] = useState(initialGenre);
-
-  const handleSortChange = (e) => {
-    setSort(e.target.value);
-    onSortChange(e.target.value);
-  };
-
-  const handleStatusChange = (e) => {
-    setStatus(e.target.value);
-    onStatusChange(e.target.value);
-  };
-
-  const handleGenreChange = (e) => {
-    setGenre(e.target.value);
-    onGenreChange(e.target.value);
-  };
-
+export const FiltersSection = ({ onSortChange, onMembershipChange, onTypeChange, sortValue, membershipValue, typeValue }) => {
   return (
     <div className="filters-container">
       <div className="title-container">
@@ -36,53 +11,107 @@ export const Filters = ({
       <div className="filters-row">
         <div className="select-container">
           <div className="label-container">
-            <label className="select-label">Sortowane po</label>
+            <InputLabel className="select-label">Sortowane po</InputLabel>
           </div>
           <div className="input-container">
-            <select 
-              value={sort}
-              onChange={handleSortChange}
-              className="select-input"
-            >
-              <option value="A do Z">A do Z</option>
-              <option value="Z do A">Z do A</option>
-            </select>
-            <img src="https://dashboard.codeparrot.ai/api/assets/Z4FyyQIBBLnlud72" alt="" className="select-arrow" />
+            <FormControl variant="outlined" sx={{ width: '100%', height: 40 }}>
+              <Select
+                value={sortValue}
+                onChange={onSortChange}
+                label="Sortowane po"
+                sx={{
+                  fontFamily: 'Nunito, sans-serif',
+                  fontSize: 16,
+                  height: 40,
+                  backgroundColor: '#ffffff',
+                  borderRadius: 2,
+                  '& .MuiOutlinedInput-notchedOutline': {
+                    borderColor: '#f29966',
+                  },
+                  '&:hover .MuiOutlinedInput-notchedOutline': {
+                    borderColor: '#f29966',
+                  },
+                  '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                    borderColor: '#f29966',
+                    boxShadow: '0 0 5px rgba(242, 153, 102, 0.5)',
+                  },
+                }}
+              >
+                <MenuItem value="A do Z">A do Z</MenuItem>
+                <MenuItem value="Z do A">Z do A</MenuItem>
+              </Select>
+            </FormControl>
           </div>
         </div>
 
         <div className="select-container">
           <div className="label-container">
-            <label className="select-label">Status przeczytania</label>
+            <InputLabel className="select-label">Status przeczytania</InputLabel>
           </div>
           <div className="input-container">
-            <select
-              value={status}
-              onChange={handleStatusChange}
-              className="select-input"
-            >
-              <option value="Nieprzeczytane">Nieprzeczytane</option>
-              <option value="Przeczytane">Przeczytane</option>
-            </select>
-            <img src="https://dashboard.codeparrot.ai/api/assets/Z4FyyQIBBLnlud73" alt="" className="select-arrow" />
+            <FormControl variant="outlined" sx={{ width: '100%', height: 40 }}>
+              <Select
+                value={membershipValue}
+                onChange={onMembershipChange}
+                label="Status przeczytania"
+                sx={{
+                  fontFamily: 'Nunito, sans-serif',
+                  fontSize: 16,
+                  height: 40,
+                  backgroundColor: '#ffffff',
+                  borderRadius: 2,
+                  '& .MuiOutlinedInput-notchedOutline': {
+                    borderColor: '#f29966',
+                  },
+                  '&:hover .MuiOutlinedInput-notchedOutline': {
+                    borderColor: '#f29966',
+                  },
+                  '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                    borderColor: '#f29966',
+                    boxShadow: '0 0 5px rgba(242, 153, 102, 0.5)',
+                  },
+                }}
+              >
+                <MenuItem value="Brak członkostwa">Brak członkostwa</MenuItem>
+                <MenuItem value="Członek">Członek</MenuItem>
+              </Select>
+            </FormControl>
           </div>
         </div>
 
         <div className="select-container">
           <div className="label-container">
-            <label className="select-label">Gatunek</label>
+            <InputLabel className="select-label">Gatunek</InputLabel>
           </div>
           <div className="input-container">
-            <select
-              value={genre}
-              onChange={handleGenreChange}
-              className="select-input"
-            >
-              <option value="Wszystkie">Wszystkie</option>
-              <option value="Fantasy">Fantasy</option>
-              <option value="Sci-Fi">Sci-Fi</option>
-            </select>
-            <img src="https://dashboard.codeparrot.ai/api/assets/Z4FyyQIBBLnlud74" alt="" className="select-arrow" />
+            <FormControl variant="outlined" sx={{ width: '100%', height: 40 }}>
+              <Select
+                value={typeValue}
+                onChange={onTypeChange}
+                label="Gatunek"
+                sx={{
+                  fontFamily: 'Nunito, sans-serif',
+                  fontSize: 16,
+                  height: 40,
+                  backgroundColor: '#ffffff',
+                  borderRadius: 2,
+                  '& .MuiOutlinedInput-notchedOutline': {
+                    borderColor: '#f29966',
+                  },
+                  '&:hover .MuiOutlinedInput-notchedOutline': {
+                    borderColor: '#f29966',
+                  },
+                  '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                    borderColor: '#f29966',
+                    boxShadow: '0 0 5px rgba(242, 153, 102, 0.5)',
+                  },
+                }}
+              >
+                <MenuItem value="Wszystkie">Wszystkie</MenuItem>
+                <MenuItem value="Fikcja">Fikcja</MenuItem>
+                <MenuItem value="Naukowe">Naukowe</MenuItem>
+              </Select>
+            </FormControl>
           </div>
         </div>
       </div>

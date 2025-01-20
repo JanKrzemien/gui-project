@@ -1,16 +1,18 @@
 .filters-container {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px; /* Increased gap for better spacing */
   width: 100%;
   max-width: 1420px;
   margin: 0 auto;
+  padding: 20px; /* Added padding to the container */
 }
 
 .title-container {
   height: 42px;
   display: flex;
   align-items: center;
+  padding-bottom: 20px; /* Added padding between the title and the filters */
 }
 
 .filters-title {
@@ -22,9 +24,9 @@
 
 .filters-row {
   display: flex;
-  gap: 10px;
+  gap: 20px; /* Added gap between the select elements */
   flex-direction: row;
-  height: 39px;
+  padding-bottom: 20px; /* Added padding between the filters and the separator */
 }
 
 .select-container {
